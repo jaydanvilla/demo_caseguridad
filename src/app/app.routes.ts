@@ -1,19 +1,45 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { ServiciosComponent } from './components/servicios/servicios.component';
-import { ArmamentoComponent } from './components/armamento/armamento.component';
-import { CertificacionesComponent } from './components/certificaciones/certificaciones.component';
-import { ContactoComponent } from './components/contacto/contacto.component';
-import { ClientesComponent } from './components/clientes/clientes.component';
-import { EntidadesComponent } from './components/entidades/entidades.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'servicios', component: ServiciosComponent },
-  { path: 'armamento', component: ArmamentoComponent },
-  { path: 'certificaciones', component: CertificacionesComponent },
-  { path: 'contacto', component: ContactoComponent },
-  { path: 'clientes', component: ClientesComponent },
-  { path: 'entidades', component: EntidadesComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  {
+    path: '',
+    loadComponent: () => import('./components/home/home.component').then(m => m.HomeComponent),
+    title: 'Inicio'
+  },
+  {
+    path: 'servicios',
+    loadComponent: () => import('./components/servicios/servicios.component').then(m => m.ServiciosComponent),
+    title: 'Servicios'
+  },
+  {
+    path: 'armamento',
+    loadComponent: () => import('./components/armamento/armamento.component').then(m => m.ArmamentoComponent),
+    title: 'Armamento y Equipo'
+  },
+  {
+    path: 'certificaciones',
+    loadComponent: () => import('./components/certificaciones/certificaciones.component').then(m => m.CertificacionesComponent),
+    title: 'Certificaciones'
+  },
+  {
+    path: 'contacto',
+    loadComponent: () => import('./components/contacto/contacto.component').then(m => m.ContactoComponent),
+    title: 'Contacto'
+  },
+  {
+    path: 'clientes',
+    loadComponent: () => import('./components/clientes/clientes.component').then(m => m.ClientesComponent),
+    title: 'Clientes'
+  },
+  {
+    path: 'entidades',
+    loadComponent: () => import('./components/entidades/entidades.component').then(m => m.EntidadesComponent),
+    title: 'Entidades Reguladoras'
+  },
+  {
+    path: 'not-found',
+    loadComponent: () => import('./components/not-found/not-found.component').then(m => m.NotFoundComponent),
+    title: 'Página no encontrada'
+  },
+  { path: '**', redirectTo: 'not-found', pathMatch: 'full' }
 ];

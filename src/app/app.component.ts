@@ -6,8 +6,7 @@ import { FooterComponent } from './components/footer/footer.component';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, NavbarComponent, FooterComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
   title = 'caseguridad-web';
