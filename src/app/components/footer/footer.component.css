@@ -1,51 +1,26 @@
-/* Footer general */
 footer {
-  background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
-  margin-top: 3rem;
+  background: linear-gradient(135deg, #1a2810 0%, #0f1a0a 100%);
+  border-top: 2px solid rgba(196, 163, 90, 0.1);
+  margin-top: 4rem;
 }
 
-/* Títulos del footer */
 footer h5 {
   margin-bottom: 1rem;
-  font-weight: bold;
-  position: relative;
-  display: inline-block;
-  padding-bottom: 8px;
+  font-size: 1rem;
+  letter-spacing: 1px;
 }
 
-footer h5::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 40px;
-  height: 2px;
-  background: #dc3545;
-}
-
-/* Texto del footer */
 footer p, footer .small {
-  color: #aaa;
-  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.83rem;
+  line-height: 1.7;
 }
 
-/* Borde superior */
-.border-top {
-  border-color: #2a2a3e !important;
+.footer-border {
+  border-top: 1px solid rgba(196, 163, 90, 0.1);
 }
 
-/* Responsive móvil */
 @media (max-width: 768px) {
-  footer .row {
-    text-align: center;
-  }
-  
-  footer h5::after {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  footer .col-md-4 {
-    margin-bottom: 1.5rem;
-  }
+  footer .row { text-align: center; }
+  footer .col-md-4 { margin-bottom: 1.5rem; }
 }

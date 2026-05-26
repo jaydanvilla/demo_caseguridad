@@ -9,22 +9,22 @@
 .error-code {
   font-size: 8rem;
   font-weight: 800;
-  color: #dc3545;
+  color: var(--mil-primary);
   line-height: 1;
-  text-shadow: 0 4px 20px rgba(220, 53, 69, 0.3);
+  text-shadow: 0 4px 20px rgba(45, 90, 39, 0.3);
   animation: pulse 2s ease-in-out infinite;
 }
 
 .error-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #1a1a2e;
+  color: var(--mil-dark);
   margin-bottom: 1rem;
 }
 
 .error-text {
   font-size: 1.1rem;
-  color: #666;
+  color: var(--mil-text-light);
   max-width: 500px;
   margin: 0 auto;
 }

@@ -1,107 +1,66 @@
-/* Tarjetas de contacto */
 .card {
-  border: none;
-  border-radius: 15px;
+  border: 1px solid rgba(45, 90, 39, 0.1);
+  border-radius: 12px;
   transition: all 0.3s ease;
-  background: linear-gradient(145deg, #ffffff, #f8f9fa);
-  cursor: pointer;
-  height: 100%;
 }
 
-/* Efecto hover */
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-  background: #ffffff;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(26, 40, 16, 0.1) !important;
+  border-color: rgba(45, 90, 39, 0.2);
 }
 
-/* Títulos dentro de tarjeta */
-.card-body h4 {
-  font-weight: bold;
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
-}
-
-/* Texto de direcciones */
 .card-body p {
-  margin-bottom: 0.5rem;
-  color: #555;
-  line-height: 1.6;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--mil-text);
 }
 
-/* Teléfonos destacados */
-.card-body p:last-of-type {
-  margin-top: 0.8rem;
-  font-weight: bold;
-  color: #dc3545;
+.icon-badge {
+  width: 44px;
+  height: 44px;
+  font-size: 0.65rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
 }
 
-/* Responsive móvil */
-@media (max-width: 768px) {
-  h2 {
-    font-size: 1.8rem;
-  }
-  
-  .card-body h4 {
-    font-size: 1.1rem;
-  }
-  
-  .card-body p {
-    font-size: 0.85rem;
-  }
+.card:hover .icon-badge {
+  background: var(--mil-accent);
+  color: var(--mil-dark);
 }
 
-/* Animación de entrada */
+.map-container {
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.map-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.map-container iframe {
+  display: block;
+  width: 100%;
+  height: 220px;
+}
+
 .card {
-  animation: slideIn 0.5s ease backwards;
+  animation: slideIn 0.4s ease backwards;
 }
-
 .card:nth-child(1) { animation-delay: 0.1s; }
 .card:nth-child(2) { animation-delay: 0.2s; }
 .card:nth-child(3) { animation-delay: 0.3s; }
 .card:nth-child(4) { animation-delay: 0.4s; }
 
 @keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-15px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
-/* Contenedor de mapas */
-.map-container {
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-}
-
-/* Efecto hover en el mapa */
-.map-container:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-/* El iframe ocupa todo el contenedor */
-.map-container iframe {
-  display: block;
-  width: 100%;
-  height: 250px;
-  transition: transform 0.3s ease;
-}
-
-/* Efecto de zoom suave al hover */
-.map-container:hover iframe {
-  transform: scale(1.01);
-}
-
-/* Responsive para móviles */
 @media (max-width: 768px) {
-  .map-container iframe {
-    height: 200px;
-  }
+  .card-body p { font-size: 0.85rem; }
+  .map-container iframe { height: 180px; }
 }

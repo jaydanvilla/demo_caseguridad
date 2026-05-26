@@ -1,85 +1,64 @@
-/* Tarjetas de armamento */
 .card {
-  border: none;
-  border-radius: 15px;
+  border: 1px solid rgba(45, 90, 39, 0.1);
+  border-radius: 12px;
   transition: all 0.3s ease;
-  background: linear-gradient(145deg, #ffffff, #f8f9fa);
-  cursor: pointer;
+  background: #fff;
 }
 
-/* Efecto hover */
 .card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-  background: #ffffff;
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(26, 40, 16, 0.12) !important;
+  border-color: rgba(45, 90, 39, 0.2);
 }
 
-/* Emojis/iconos grandes */
-.card-body h3 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  transition: transform 0.3s ease;
+.icon-badge {
+  width: 52px;
+  height: 52px;
+  font-size: 0.7rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.card:hover .icon-badge {
+  background: var(--mil-accent);
+  color: var(--mil-dark);
+}
+
+.card-title {
+  font-size: 1.05rem;
+  color: var(--mil-dark);
+  margin-bottom: 0.8rem;
+}
+
+.card-text {
+  color: var(--mil-text-light);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.mil-tag {
   display: inline-block;
 }
 
-.card:hover .card-body h3 {
-  transform: scale(1.1);
-}
-
-/* Título */
-.card-title {
-  font-weight: bold;
-  color: #1a1a2e;
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-}
-
-/* Descripción */
-.card-text {
-  color: #666;
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-/* Responsive móvil */
-@media (max-width: 768px) {
-  h2 {
-    font-size: 1.8rem;
-  }
-  
-  .card-body h3 {
-    font-size: 2.5rem;
-  }
-  
-  .card-title {
-    font-size: 1rem;
-  }
-  
-  .card-text {
-    font-size: 0.8rem;
-  }
-}
-
-/* Animación al cargar */
 .card {
   animation: fadeInUp 0.5s ease backwards;
 }
-
-.card:nth-child(1) { animation-delay: 0.1s; }
-.card:nth-child(2) { animation-delay: 0.2s; }
-.card:nth-child(3) { animation-delay: 0.3s; }
-.card:nth-child(4) { animation-delay: 0.4s; }
-.card:nth-child(5) { animation-delay: 0.5s; }
-.card:nth-child(6) { animation-delay: 0.6s; }
-.card:nth-child(7) { animation-delay: 0.7s; }
+.card:nth-child(1) { animation-delay: 0.05s; }
+.card:nth-child(2) { animation-delay: 0.1s; }
+.card:nth-child(3) { animation-delay: 0.15s; }
+.card:nth-child(4) { animation-delay: 0.2s; }
+.card:nth-child(5) { animation-delay: 0.25s; }
+.card:nth-child(6) { animation-delay: 0.3s; }
+.card:nth-child(7) { animation-delay: 0.35s; }
+.card:nth-child(8) { animation-delay: 0.4s; }
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .card-title { font-size: 0.95rem; }
+  .card-text { font-size: 0.8rem; }
+  .icon-badge { width: 44px; height: 44px; font-size: 0.65rem; }
 }
