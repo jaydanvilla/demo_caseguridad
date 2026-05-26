@@ -30,6 +30,7 @@ body {
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 ::selection {
@@ -46,11 +47,27 @@ img { max-width: 100%; height: auto; }
 
 a { transition: color 0.3s ease; }
 
+/* ===== MAIN LAYOUT ===== */
+main {
+  min-height: 70vh;
+  padding-top: 0.5rem;
+}
+
+/* ===== SECTION SPACING ===== */
+.page-section {
+  padding: 5rem 0;
+}
+
+.page-section-sm {
+  padding: 3rem 0;
+}
+
+/* ===== SECTION TITLE ===== */
 .section-title {
   position: relative;
   display: inline-block;
   padding-bottom: 12px;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
   font-weight: 700;
   font-size: 1.75rem;
   color: var(--mil-dark);
@@ -69,19 +86,21 @@ a { transition: color 0.3s ease; }
   border-radius: 2px;
 }
 
+/* ===== CARDS ===== */
 .card {
   border: 1px solid rgba(45, 90, 39, 0.12);
   border-radius: 12px;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   background: #fff;
 }
 
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(26, 40, 16, 0.1);
+  box-shadow: 0 15px 35px rgba(26, 40, 16, 0.1);
   border-color: rgba(45, 90, 39, 0.25);
 }
 
+/* ===== BUTTONS ===== */
 .btn-mil {
   background: var(--mil-accent);
   border: none;
@@ -117,6 +136,7 @@ a { transition: color 0.3s ease; }
   transform: translateY(-2px);
 }
 
+/* ===== ICON BADGE ===== */
 .icon-badge {
   display: inline-flex;
   align-items: center;
@@ -130,8 +150,16 @@ a { transition: color 0.3s ease; }
   font-weight: 700;
   margin-bottom: 1rem;
   flex-shrink: 0;
+  transition: all 0.4s ease;
 }
 
+.card:hover .icon-badge {
+  background: var(--mil-accent);
+  color: var(--mil-dark);
+  transform: scale(1.08);
+}
+
+/* ===== TAG ===== */
 .mil-tag {
   display: inline-block;
   background: rgba(45, 90, 39, 0.1);
@@ -144,11 +172,101 @@ a { transition: color 0.3s ease; }
   text-transform: uppercase;
 }
 
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.anim-fade-up { animation: fadeInUp 0.7s ease backwards; }
+.anim-fade-down { animation: fadeInDown 0.7s ease backwards; }
+.anim-fade-left { animation: fadeInLeft 0.7s ease backwards; }
+.anim-fade-right { animation: fadeInRight 0.7s ease backwards; }
+.anim-scale { animation: scaleIn 0.6s ease backwards; }
+
+.anim-delay-1 { animation-delay: 0.1s; }
+.anim-delay-2 { animation-delay: 0.2s; }
+.anim-delay-3 { animation-delay: 0.3s; }
+.anim-delay-4 { animation-delay: 0.4s; }
+.anim-delay-5 { animation-delay: 0.5s; }
+.anim-delay-6 { animation-delay: 0.6s; }
+.anim-delay-7 { animation-delay: 0.7s; }
+.anim-delay-8 { animation-delay: 0.8s; }
+
+/* ===== SCROLL ANIMATION (hidden until visible) ===== */
+.scroll-anim {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.scroll-anim.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-anim-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.scroll-anim-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-anim-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.scroll-anim-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-anim-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scroll-anim-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   html { font-size: 15px; }
-  .section-title { font-size: 1.5rem; }
+  .section-title { font-size: 1.5rem; margin-bottom: 2rem; }
+  .page-section { padding: 3rem 0; }
+  .page-section-sm { padding: 2rem 0; }
 }
 
 @media (max-width: 576px) {
   html { font-size: 14px; }
+  .page-section { padding: 2.5rem 0; }
 }

@@ -1,110 +1,106 @@
 .hero-section {
-  background: linear-gradient(135deg, #1a2810 0%, #2d5a27 40%, #1a2810 100%);
+  background: linear-gradient(135deg, var(--mil-dark) 0%, var(--mil-primary) 50%, var(--mil-dark) 100%);
   position: relative;
+  margin-bottom: 2rem;
   overflow: hidden;
-  min-height: 75vh;
-  display: flex;
-  align-items: center;
 }
 
-.hero-overlay {
+.hero-section::before {
+  content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
   background-size: 30px 30px;
   pointer-events: none;
 }
 
-.hero-pattern {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: repeating-linear-gradient(
-    90deg,
-    transparent,
-    transparent 40px,
-    rgba(196, 163, 90, 0.03) 40px,
-    rgba(196, 163, 90, 0.03) 41px
-  );
-  pointer-events: none;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-}
-
 .hero-tag {
-  display: inline-block;
   background: rgba(196, 163, 90, 0.15);
   border: 1px solid rgba(196, 163, 90, 0.3);
-  padding: 0.4rem 1.2rem;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
   color: var(--mil-accent);
-  margin-bottom: 1.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
   animation: fadeInDown 0.8s ease backwards;
 }
 
 .hero-title {
-  font-size: 4.5rem;
-  font-weight: 800;
-  letter-spacing: 8px;
   color: #fff;
   text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
   animation: fadeInDown 0.8s ease 0.15s backwards;
 }
 
 .hero-subtitle {
-  font-size: 1.3rem;
-  font-weight: 300;
-  letter-spacing: 2px;
   color: rgba(255, 255, 255, 0.85);
+  font-size: 1.4rem;
+  font-weight: 300;
+  letter-spacing: 1px;
   animation: fadeInDown 0.8s ease 0.3s backwards;
 }
 
 .hero-badge {
-  display: inline-block;
-  background: rgba(0, 0, 0, 0.25);
-  padding: 0.5rem 1.5rem;
-  border-radius: 4px;
-  font-size: 0.85rem;
+  background: rgba(0, 0, 0, 0.25) !important;
   border: 1px solid rgba(196, 163, 90, 0.2);
   color: var(--mil-accent-light);
+  font-size: 0.9rem;
+  font-weight: 500;
   animation: fadeInDown 0.8s ease 0.45s backwards;
 }
 
-.hero-section .btn-mil {
+.btn-hero {
+  background: var(--mil-accent);
+  border: none;
+  color: var(--mil-dark);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(196, 163, 90, 0.3);
   animation: fadeInDown 0.8s ease 0.6s backwards;
-  font-size: 0.95rem;
+}
+
+.btn-hero:hover {
+  background: var(--mil-gold-hover);
+  color: var(--mil-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(196, 163, 90, 0.5);
+}
+
+.card {
+  border-radius: 12px;
+  border: 1px solid rgba(45, 90, 39, 0.1);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(26, 40, 16, 0.12) !important;
+  border-color: rgba(45, 90, 39, 0.25);
 }
 
 .card-title {
-  font-size: 1.15rem;
   color: var(--mil-dark);
+  font-size: 1.15rem;
 }
 
 .card-text {
-  color: var(--mil-text-light);
   font-size: 0.9rem;
   line-height: 1.7;
+  color: var(--mil-text-light) !important;
 }
 
-.card .icon-badge {
-  transition: all 0.3s ease;
+.icon-badge-home {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--mil-primary), var(--mil-dark));
+  color: var(--mil-accent);
+  font-size: 1.1rem;
+  transition: all 0.4s ease;
 }
 
-.card:hover .icon-badge {
+.card:hover .icon-badge-home {
   background: var(--mil-accent);
   color: var(--mil-dark);
+  transform: scale(1.1);
 }
 
 @keyframes fadeInDown {
@@ -113,8 +109,9 @@
 }
 
 @media (max-width: 768px) {
-  .hero-section { min-height: 60vh; }
-  .hero-title { font-size: 2.8rem; letter-spacing: 5px; }
-  .hero-subtitle { font-size: 1.1rem; }
-  .hero-tag { font-size: 0.7rem; }
+  .hero-title { font-size: 2.5rem !important; }
+  .hero-subtitle { font-size: 1.1rem !important; }
+  .hero-badge { font-size: 0.8rem !important; }
+  .btn-hero { padding: 0.75rem 1.5rem !important; font-size: 0.95rem !important; }
+  .hero-tag { font-size: 0.7rem; margin-bottom: 0.8rem !important; }
 }
