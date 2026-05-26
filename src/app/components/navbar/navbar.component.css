@@ -1,0 +1,79 @@
+/* Fondo del navbar con gradiente */
+.navbar {
+  background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  padding: 1rem 0;
+}
+
+/* Marca */
+.navbar-brand {
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+  color: #dc3545 !important;
+}
+
+/* Enlaces del menú */
+.nav-link {
+  font-weight: 500;
+  margin: 0 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Efecto subrayado al pasar mouse */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #dc3545;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Enlace activo */
+.nav-link.active {
+  color: #dc3545 !important;
+}
+
+.nav-link.active::after {
+  width: 100%;
+  background-color: #dc3545;
+}
+
+/* Botón hamburguesa */
+.navbar-toggler {
+  border-color: #dc3545;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23dc3545' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Responsive: ajustes para móvil */
+@media (max-width: 991px) {
+  .navbar-nav {
+    text-align: center;
+    padding: 1rem 0;
+  }
+  
+  .nav-link::after {
+    display: none;
+  }
+  
+  .nav-link:hover {
+    background-color: #dc3545;
+    border-radius: 5px;
+    color: white !important;
+  }
+}
